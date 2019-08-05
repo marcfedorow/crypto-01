@@ -54,42 +54,28 @@ int main(){
 	} printf("\n");
 	//*/
 
-
 	TF t;
 	FILE *fin, *ftmp, *fout;
 	printf("Twofish:\n");
 	now();
 	t.simple("data01.txt", "tf_simple.txt", (uint8_t*)raw_key, 1);
 	now();
-	
 	t.simple("tf_simple.txt", "out_tf.txt", (uint8_t*)raw_key, 0);
 	now();
 	//*
 	Magma l;
 	printf("Magma:\n");
 	now();
-	
-	for (int i = 0; i < 2600 / 80; ++i)
 	l.simple("data01.txt", "tmp_simple.txt", raw_key, 1);
 	now();
-	
-	for (int i = 0; i < 2600 / 80; ++i)
 	l.simple("tmp_simple.txt", "out_simple.txt", key, 0);
 	now();
-	
-	for (int i = 0; i < 2600 / 80; ++i)
 	l.gamma("data01.txt", "tmp_gamma.txt", key, iv);
 	now();
-	
-	for (int i = 0; i < 2600 / 80; ++i)
 	l.gamma("tmp_gamma.txt", "out_gamma.txt", raw_key, raw_iv);
 	now();
-	
-	for (int i = 0; i < 2600 / 80; ++i)
 	l.gamma("data01.txt", "tmp_gamma_feedback.txt", key, iv, 1, 1);
 	now();
-	
-	for (int i = 0; i < 2600 / 80; ++i)
 	l.gamma("tmp_gamma.txt", "out_gamma_feedback.txt", key, iv, 1, 0);
 	now();
 	//*/
