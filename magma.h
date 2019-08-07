@@ -25,10 +25,10 @@ private:
 	static const uint32_t C2 = 0x1010104;
 	
 	uint32_t add_mod_32_minus_1(uint32_t a, uint32_t b);
-	uint64_t crypt(uint64_t a, uint32_t* key, bool encrypt, int rounds = 32);
-	uint32_t* string2key(char* str, int size = 0);
 
 public:
+  uint32_t* string2key(char* str, int size = 0);
+  uint64_t crypt(uint64_t a, uint32_t* key, bool encrypt, int rounds = 32);
 	Magma(){};
 	void simple(char* fin, char* fout, char* keystr, bool encrypt);
 	void simple(char* fin, char* fout, uint32_t* key, bool encrypt);

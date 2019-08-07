@@ -62,8 +62,8 @@ uint64_t Magma::crypt(uint64_t a, uint32_t* key, bool encrypt, int rounds){
 	data64 data;
 	data._64 = a;
 	uint32_t tmp;
-	for (int i = 0; i < 4; ++i){
-		for (int j = 0; j < rounds / 4; ++j){
+	for (int i = 0; i < rounds / 8; ++i){
+		for (int j = 0; j < 8; ++j){
 			data._32[1] = _G(key[ (encrypt? (i == 3) : (i != 0)) ? (7 - j) : (j)], data._32[1], data._32[0]);
 			swap(data._32[1], data._32[0]);
 			//printf("%d: %x %x\n", i * 8 + j, data._32[1], data._32[0]);

@@ -19,7 +19,7 @@ printf("%.30lf\n", d - 0.5);
 //maximal accuracy is 2^-1074 due to denormalized double:
 /*
 double d = 1;
-for (int i = 0; i++ < 1074; d /= 2);
+for (int i = 0; i++ < 1075; d /= 2);
 printf("%d\n", d? 1 : 0);
 d /= 2;
 printf("%d\n", d? 1 : 0);
@@ -45,11 +45,11 @@ printf("%.350lf\n\n", i);
 #include <random>
 
 void initialize();
-inline uint64_t random(uint8_t bitlen = -1);
-inline double udrv();
+uint64_t random(uint8_t bitlen = -1);
+double udrv();
 double gauss(double, double);
-inline bool coin(uint8_t pos);
-inline bool coin();
-inline bool generator(double p);
+bool coin(uint8_t pos);
+bool coin();
+bool generator(double p);
 
 #endif _random_h_
